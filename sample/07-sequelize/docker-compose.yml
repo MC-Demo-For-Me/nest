@@ -9,3 +9,10 @@ services:
       MYSQL_DATABASE: test
     ports:
       - "3306:3306"
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /var/lib/mysql
+      - /tmp
+      - /var/run/mysqld
