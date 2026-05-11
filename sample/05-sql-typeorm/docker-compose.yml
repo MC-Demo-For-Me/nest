@@ -9,6 +9,13 @@ services:
       MYSQL_DATABASE: test
     ports:
       - "3306:3306"
+    read_only: true
+    tmpfs:
+      - /var/run/mysqld
+      - /tmp
+      - /var/lib/mysql
+    security_opt:
+      - no-new-privileges:true
   db-test:
     image: mysql:9
     restart: always
@@ -17,3 +24,8 @@ services:
       MYSQL_DATABASE: test
     ports:
       - "3307:3306"
+    read_only: true
+    tmpfs:
+      - /var/run/mysqld
+      - /tmp
+      - /var/lib/mysql
